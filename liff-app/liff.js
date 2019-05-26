@@ -263,6 +263,20 @@ function liffGetButtonStateCharacteristic(characteristic) {
 function liffToggleDeviceLedState(state) {
     // on: 0x01
     // off: 0x00
+    if (state) {
+        liff.sendMessages([{
+            type: 'text',
+            text: "You've successfully sent a message! Hooray!"
+        }, {
+            type: 'sticker',
+            packageId: '2',
+            stickerId: '144'
+        }]).then(function () {
+            window.alert("Message sent");
+        }).catch(function (error) {
+            window.alert("Error sending message: " + error);
+        });
+    }
     window.ledCharacteristic.writeValue(
         state ? new Uint8Array([0x01]) : new Uint8Array([0x00])
     ).catch(error => {
