@@ -37,7 +37,7 @@ function handlerToggleLed() {
 
 function uiToggleLedButton(state) {
     const el = document.getElementById("btn-led-toggle");
-    el.innerText = state ? "Switch LED OFF" : "Switch LED ON";
+    el.innerText = state ? "Share" : "Share";
 
     if (state) {
       el.classList.add("led-on");
@@ -266,7 +266,7 @@ function liffToggleDeviceLedState(state) {
     if (state) {
         liff.sendMessages([{
             type: 'text',
-            text: "You've successfully sent a message! Hooray!"
+            text: "Valve ON"
         }, {
             type: 'sticker',
             packageId: '2',
@@ -277,6 +277,11 @@ function liffToggleDeviceLedState(state) {
             window.alert("Error sending message: " + error);
         });
     }
+    else {
+        liff.sendMessages([{
+            type: 'text',
+            text: "Valve OFF"
+        }
     window.ledCharacteristic.writeValue(
         state ? new Uint8Array([0x01]) : new Uint8Array([0x00])
     ).catch(error => {
