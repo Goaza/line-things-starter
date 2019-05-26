@@ -261,12 +261,10 @@ function liffGetButtonStateCharacteristic(characteristic) {
 }
 
 function liffToggleDeviceLedState(state) {
-    // on: 0x01
-    // off: 0x00
-    if (state) {
+if (state) {
         liff.sendMessages([{
             type: 'text',
-            text: "Valve ON"
+            text: "You've successfully sent a message! Hooray!"
         }, {
             type: 'sticker',
             packageId: '2',
