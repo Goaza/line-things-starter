@@ -277,11 +277,6 @@ function liffToggleDeviceLedState(state) {
             window.alert("Error sending message: " + error);
         });
     }
-    else {
-        liff.sendMessages([{
-            type: 'text',
-            text: "Valve OFF"
-        }
     window.ledCharacteristic.writeValue(
         state ? new Uint8Array([0x01]) : new Uint8Array([0x00])
     ).catch(error => {
