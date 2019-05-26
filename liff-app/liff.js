@@ -264,7 +264,7 @@ function liffToggleDeviceLedState(state) {
 if (state) {
         liff.sendMessages([{
             type: 'text',
-            text: "You've successfully sent a message! Hooray!"
+            text: "Valve ON"
         }, {
             type: 'sticker',
             packageId: '2',
